@@ -1,12 +1,9 @@
 
-
 /*-------------------------------------------------------*/
 
-/* pth.c exemple utilisation pthreads Posix sur Solaris */
-
-/* ----- -- Michel Vayssade -- Avril 1999 -- */
-
-/* > gcc -o pth pth.c -L/usr/X11R6/lib/ -lpthread */ /*-------------------------------------------------------*/
+/* > gcc -o thrdv_broadcast thrdv_broadcast.c -L/usr/X11R6/lib/ -lpthread */ 
+*
+/*-------------------------------------------------------*/
 
 #include <pthread.h>
 
