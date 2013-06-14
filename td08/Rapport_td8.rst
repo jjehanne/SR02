@@ -1,6 +1,13 @@
+Rapport SR02 du TD n°8 - Threads
+================================
+
+Exercice 1 et 2
+---------------
+
 Les exercices n°1 et n°2 consistent en une simple exécution du code. Celle-ci a été effectuée, et nous avons pu observer le fonctionnement de chacun d'entre eux, qu'il a ensuite fallu associer dans les exercices suivants (n°3 et n°4).
 
 Exercice n°3 : thx.c
+--------------------
 
 Le but de cet exercice est la création d'un programme thx.c, dans lequel 3 threads sont exécutés. A chacun des threads, une barre de progression est associée, représentée par un rectangle se remplissant au fur et à mesure. Les trois barres de progression peuvent avancer à des vitesses différentes.
 Pour cela, on effectue d'abord l'initialisation d'un mutex, qui servira à assurer les exclusions mutuelles nécessaires dans l'ensemble du programme (notamment l'utilisation des différentes fonctions de création de rectangle, qui s'avèrent être des fonctions non ré-entrantes, et nécessitent donc l'utilisation de mutex pour éviter les erreurs si plusieurs threads accèdent simultanément à ces fonctions).
@@ -14,6 +21,7 @@ On a ici le cas de trois threads s'exécutant en parallèle. Il est nécessaire de 
 
 
 Exercice n°4 : Thread avec rendez-vous
+---------------------------------------
 
 Cette partie du TD consiste à implémenter du code afin de bloquer les threads ayant fait progresser la barre 10 fois, et ce jusqu'à ce que le dernier thread ait fait progresser la barre 10 fois. A ce moment, les threads se débloquent et finissent leur exécution.
 
@@ -32,6 +40,7 @@ Dans la fonction th_rdv de rendez vous, si l'on saute la condition et donc que l
 count >1 cela veut dire que il reste des threads à réveiller. Si la variable count vaut 1 c'est que le dernier thread est réveillé et il n'est pas nécessaire d'envoyer un signal (il serait de toute façon perdu).
 
 Exercice supplémentaire
+-----------------------
 
 Nous avons, dans cet exercice, pu mettre en place une structure particulière de gestion des signaux avec des threads. Dans le cas général, les signaux sont communs à tous les threads, mais pas le masque des signaux. Chaque thread a son propre masque de signaux. Ainsi, de base, tous les threads peuvent être perturbés par des signaux  externe (SIGKILL, SIGINT , ...). On peut néanmoins masquer, dans un thread en particulier, un ou plusieurs signaux. C'est là-dessus que s'appuie cet exercice : on souhaite qu'un thread unique soit assigné à la gestion des signaux. Pour cela, on bloque, dans tous les threads, sauf un, tous les signaux. Le thread qui n'a pas bloqué les signaux est celui qui sera assigné à leur gestion. On peut donc, dans ce thread, bloquer certains signaux, ou les laisser tous recevables. On se met ensuite en attente d'éventuels signaux, et on boucle sur cette attente (sigwait), pour être toujours en mesure de les traiter.
 
