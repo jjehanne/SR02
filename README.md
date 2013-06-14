@@ -19,3 +19,14 @@ Sujet : http://www4.utc.fr/~sr02/P2009/support/tds/td5/co/TD_web_shmem.html
 
 ------------------------------------------------------------------------------------
 
+TD06 : Sémaphores
+
+Sujet : http://www4.utc.fr/~sr02/P2009/support/tds/td7/co/TD_web_semaphores.html
+
+------------------------------------------------------------------------------------
+
+TD08 : Threads
+
+Sujet : http://www4.utc.fr/~sr02/P2009/support/tds/td8/co/TD_web_threads.html
+
+------------------------------------------------------------------------------------
